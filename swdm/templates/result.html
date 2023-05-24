@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<body>
+
+    {% for game in games %}
+    <div>
+        {{game.duelist1}}
+        {{game.duelist2}}
+        {{game.result}}
+    </div><hr>
+    {% endfor %}
+</body>
+</html>
