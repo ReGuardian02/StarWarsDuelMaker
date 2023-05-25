@@ -3,7 +3,6 @@ from django.db import models
 
 class Group(models.Model):
     name = models.TextField(max_length=50, verbose_name="Фракция/группировка")
-    points = models.SmallIntegerField
     def __str__(self):
         return self.name
 

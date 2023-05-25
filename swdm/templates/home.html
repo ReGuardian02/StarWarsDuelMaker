@@ -7,31 +7,35 @@
     </head>
     <body>
         <h1 class="welcome_text">WELCOME TO STAR WARS DUEL MAKER</h1>
+        <div class="fields">
         <form method="POST" action="">
             {% csrf_token %}
-            <input class="input1" type="text" id="name" name="name">
-            <select name="group" id="group">
+            <input class="input" type="text" id="name" name="name">
+            <select class="selector" name="group" id="group">
                 <option value="2">Республика</option>
                 <option value="1">Империя</option>
                 <option value="3">Мандалор</option>
             </select>
-            <input type="submit" value="Добавить челика">
+            <input class="button" type="submit" value="Добавить участника">
         </form>
         <form method="POST" action="">
             {% csrf_token %}
-            <select name="player1" id="player1">
+            <select class="selector" name="player1" id="player1">
                 {% for player in players %}
                 <option value="{{player.name}}">{{player.name}}</option>
                 {% endfor %}
             </select>
-            <select name="player2" id="player2">
+            <h1 class="vs_text">VS</h1>
+            <select class="selector" name="player2" id="player2">
                 {% for player in players %}
                 <option value="{{player.name}}">{{player.name}}</option>
                 {% endfor %}
             </select>
-            <input name='player_duel' type="submit" value="Дуэль!">
+            <input class="button" name='player_duel' type="submit" value="Дуэль!">
         </form>
         <h1>Победитель: {{winner}}</h1>
+        <a class="link" href="/result">История дуэлей</a>
+        </div>
     </body>
     <style>
 @font-face {
@@ -50,13 +54,51 @@
         font-size: 50px;
         padding-top: 20px;
         padding-left: 20px;
+        text-align: center;
     }
-    .input1 {
+    .input {
         border: 1px solid gray;
         border-radius: 8px;
         padding: 6px;
         height: 32px;
         font-size: 28px;
+        margin-top: 30px;
     }
+    .selector {
+        border: 1px solid gray;
+        border-radius: 8px;
+        height: 45px;
+        font-size: 28px;
+        margin-top: 30px;
+    }
+    .fields {
+        padding-top: 20px;
+        padding-left: 20px;
+        width: 50%;
+        margin: auto;
+    }
+    .button {
+        border: 1px solid gray;
+        border-radius: 8px;
+        padding: 6px;
+        height: 45px;
+        font-size: 28px;
+        margin-top: 30px;
+        margin-left: 20px;
+    }
+    .link {
+        border: 1px solid gray;
+        border-radius: 8px;
+        padding: 6px;
+        height: 45px;
+        font-size: 28px;
+        margin-top: 30px;
+    }
+    .vs_text {
+        margin: auto;
+        font-family:'StarWars';
+        font-size: 50px;
+        padding-top: 20px;
+        padding-left: 20px;
     </style>
 </html>
